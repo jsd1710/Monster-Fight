@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/mfSplashScreenView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAlignBottom="true"
+        android:contentDescription="splash screen"
+        android:cropToPadding="true"
+        android:src="@drawable/mfsplashpatch" >
+
+    </ImageView>
+	<TextView
+		android:text="game by: D. Hamel, J. Dobkins, D. West"
+		android:id="@+id/creditsText"
+		android:layout_gravity="center_horizontal|bottom"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content">
+	</TextView>
+
+	<RelativeLayout
+	    android:id="@+id/buttons"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_gravity="bottom"
+	    android:layout_marginBottom="20dp"
+	    android:gravity="bottom"
+	    android:orientation="horizontal"
+	    android:paddingRight="10dp" >
+
+	    <ImageButton
+	        android:id="@+id/btnStart"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toLeftOf="@+id/btnExit"
+	        android:clickable="true"
+	        android:src="@drawable/startselector" >
+	    </ImageButton>
+
+	    <ImageButton
+	        android:id="@+id/btnExit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:clickable="true"
+	        android:src="@drawable/exitselector" >
+
+	    </ImageButton>
+</RelativeLayout>
+</FrameLayout>
