@@ -1,3 +1,7 @@
+/*	Written by: Derek Hamel, Jacob Dobkins, Drew West
+ * 	Date: 10/11/13
+ */
+
 package tjaf.monsterfight;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -30,7 +34,9 @@ public class MFGameRenderer implements Renderer{
 			e.printStackTrace();
 		}
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+		// scroll the background
 		if(scroll){
+			// sets the scroll increment for x and y based on direction
 			if(hemi1){
 				bgScrollx += (float)Math.cos(angle)*MFEngine.SCROLL_BACKGROUND_1;
 				bgScrolly -= (float)Math.sin(angle)*MFEngine.SCROLL_BACKGROUND_1;
@@ -50,8 +56,6 @@ public class MFGameRenderer implements Renderer{
 		
 		//All other game drawing will be called here
 		
-		gl.glEnable(GL10.GL_BLEND);
-		gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		loopEnd = System.currentTimeMillis();
 		loopRunTime = ((loopEnd - loopStart));
 	}
@@ -93,12 +97,16 @@ public class MFGameRenderer implements Renderer{
 		gl.glEnable(GL10.GL_DEPTH_TEST);
 		gl.glDepthFunc(GL10.GL_LEQUAL);
 		
+		gl.glEnable(GL10.GL_BLEND);
+		gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);
+		
 		background.loadTexture(gl,MFEngine.BACKGROUND_TEXTURE_ONE,
 				MFEngine.context);
 		player1.loadTexture(gl, MFEngine.PLAYER, MFEngine.context);
 
 	}
 	
+	// all player character animation in the field is done here.
 	private void movePlayer1(GL10 gl){
 		switch (MFEngine.playerAction){
 		case MFEngine.PLAYER_WALK_RIGHT_1:

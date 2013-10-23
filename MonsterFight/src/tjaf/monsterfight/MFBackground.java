@@ -1,3 +1,7 @@
+/*	Written by: Derek Hamel, Jacob Dobkins, Drew West
+ * 	Date: 10/11/13
+ */
+
 package tjaf.monsterfight;
 
 import java.io.IOException;
@@ -15,12 +19,15 @@ import android.opengl.GLUtils;
 
 public class MFBackground {
 	
+	//buffers that hold the vertices texture and indices of the texture
 	private FloatBuffer vertexBuffer;
 	private FloatBuffer textureBuffer;
 	private ByteBuffer indexBuffer;
 	
+	// only 1 background is loaded
 	private int[] textures = new int[1];
 	
+	// an array for the "canvas"
 	private float vertices[] = {
 			0.0f, 0.0f, 0.0f,
 			1.0f, 0.0f, 0.0f,
@@ -28,6 +35,16 @@ public class MFBackground {
 			0.0f, 1.0f, 0.0f,
 	};
 	
+	// an array for the "picture"
+	/*	(0.0,0.0)___(1.0,0.0)
+	 * 	|					|
+	 * 	|					|
+	 * 	|					|
+	 * 	(0.0,1.0)___(1.0,1.0)
+	 * 
+	 * 	0,0 starts at the top left because the 
+	 * 	0 of the y-axis is on top
+	 */
 	private float texture[] = {
 			0.0f, 0.0f,
 			0.1f, 0.0f,
@@ -35,12 +52,14 @@ public class MFBackground {
 			0.0f, 0.1f,
 	};
 	
+	// an array for the triangles
 	private byte indices[] = {
 			0,1,2,
 			0,2,3,
 	};
 	
 	public MFBackground() {
+		// creates a buffer for the vertices, is *4 because float is 4 times a byte
 		ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
 		vertexBuffer = byteBuf.asFloatBuffer();

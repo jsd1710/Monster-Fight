@@ -1,3 +1,7 @@
+/*	Written by: Derek Hamel, Jacob Dobkins, Drew West
+ * 	Date: 10/11/13
+ */
+
 package tjaf.monsterfight;
 
 import android.content.Context;

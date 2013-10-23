@@ -1,3 +1,7 @@
+/*	Written by: Derek Hamel, Jacob Dobkins, Drew West
+ * 	Date: 10/11/13
+ */
+
 package tjaf.monsterfight;
 
 import android.app.Activity;
@@ -14,6 +18,7 @@ public class MFMainMenu extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		// see main activity if confused here
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
@@ -30,7 +35,7 @@ public class MFMainMenu extends Activity {
 		};
 		MFEngine.musicThread.start();
 	
-		final MFEngine engine = new MFEngine();
+		final MFEngine engine = new MFEngine(); // easier to access engine
 	
 		/** Set menu button options */
 		ImageButton start = (ImageButton)findViewById(R.id.btnStart);
