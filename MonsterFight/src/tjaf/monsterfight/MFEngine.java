@@ -29,6 +29,7 @@ public class MFEngine {
 	public static final int PLAYER_WALK_RIGHT_1 = 4;
 	public static final int PLAYER_FRAMES_BETWEEN_ANI = 5;
 	public static int playerAction = 0;
+	//this is a change
 	
 	/*Kill game and exit*/
 	@SuppressWarnings("deprecation")
